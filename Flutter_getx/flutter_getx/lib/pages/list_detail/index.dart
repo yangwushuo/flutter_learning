@@ -16,7 +16,8 @@ class DetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final details = Get.arguments as Map;
+    final details = Get.arguments;
+    final parameters = Get.parameters;
 
     return Scaffold(
       appBar: AppBar(title: Text('详情页')),
@@ -27,7 +28,8 @@ class DetailView extends StatelessWidget {
             subtitle: Text('Get.back()'),
             onTap: () => {Get.back()},
           ),
-          _buildBackListTileRow(details)
+          _buildBackListTileRow(details),
+          _buildBackListTileRow(parameters),
         ],
       ),
     );

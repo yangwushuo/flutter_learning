@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx/pages/list_detail/index.dart';
 import 'package:get/get.dart';
 
+import '../../common/routes/app_pages.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -46,10 +48,76 @@ class HomeView extends StatelessWidget {
             onTap: () async {
               var result =
                   await Get.toNamed("/home/list/detail", arguments: {"id": 1});
-              Get.snackbar("返回值", "success -> " + result["success"].toString());
+              Get.snackbar("返回值",
+                  "success arguments传值 -> " + result["success"].toString());
             },
           ),
-          Divider()
+          ListTile(
+              title: Text("导航-parameters传值+返回值"),
+              subtitle: Text('Get.toNamed("/home/list/detail?id=666")'),
+              onTap: () async {
+                var result = await Get.toNamed("/home/list/detail?id=666");
+                Get.snackbar("返回值",
+                    "success parameters传值-> " + result["success"].toString());
+              }),
+          ListTile(
+              title: Text("导航-参数传值+返回值"),
+              subtitle: Text('Get.toNamed("/home/list/detail/999")'),
+              onTap: () async {
+                var result = await Get.toNamed("/home/list/detail/999");
+                Get.snackbar(
+                    "返回值", "success 参数传值-> " + result["success"].toString());
+              }),
+          ListTile(
+              title: Text("导航-not found"),
+              subtitle: Text('Get.toNamed("/aaa9")'),
+              onTap: () async {
+                await Get.toNamed("/aaa9");
+              }),
+          ListTile(
+              title: Text("导航-中间件-认证Auth"),
+              subtitle: Text('Get.toNamed(AppRoutes.My)'),
+              onTap: () async {
+                await Get.toNamed(AppRoutes.My);
+              }),
+          Divider(),
+          // 状态管理
+          ListTile(
+              title: Text("State-Obx"),
+              subtitle: Text('Get.toNamed(AppRoutes.Obx)'),
+              onTap: () => Get.toNamed(AppRoutes.State + AppRoutes.Obx)),
+          ListTile(
+              title: Text("State-Getx"),
+              subtitle: Text('Get.toNamed(AppRoutes.Getx)'),
+              onTap: () => Get.toNamed(AppRoutes.State + AppRoutes.Getx)),
+          ListTile(
+            title: Text("State-GetBuilder"),
+            subtitle: Text('Get.toNamed(AppRoutes.GetBuilder)'),
+            onTap: () => Get.toNamed(AppRoutes.State + AppRoutes.GetBuilder),
+          ),
+          ListTile(
+            title: Text("State-ValueBuilder"),
+            subtitle: Text('Get.toNamed(AppRoutes.ValueBuilder)'),
+            onTap: () => Get.toNamed(AppRoutes.State + AppRoutes.ValueBuilder),
+          ),
+          ListTile(
+            title: Text("State-Workers"),
+            subtitle: Text('Get.toNamed(AppRoutes.Workers)'),
+            onTap: () => Get.toNamed(AppRoutes.State + AppRoutes.Workers),
+          ),
+          Divider(),
+          ListTile(
+            title: Text("Dependency-Put-Find"),
+            subtitle: Text('Get.toNamed(AppRoutes.DependencyPutFind)'),
+            onTap: () =>
+                Get.toNamed(AppRoutes.Dependency + AppRoutes.DependencyPutFind),
+          ),
+          ListTile(
+            title: Text("Dependency-LazyPut"),
+            subtitle: Text('Get.toNamed(AppRoutes.DependencyLazyPut)'),
+            onTap: () =>
+                Get.toNamed(AppRoutes.Dependency + AppRoutes.DependencyLazyPut),
+          ),
         ],
       ),
     );

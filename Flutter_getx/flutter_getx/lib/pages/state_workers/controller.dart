@@ -2,10 +2,10 @@ import 'package:get/get.dart';
 
 class CountController extends GetxController {
   final _count = 0.obs;
-  set count(value) => this.count.value = value;
-  get count => this.count.value;
+  set count(value) => _count.value = value;
+  get count => _count.value;
 
-  add() => this.count.value++;
+  add() => _count.value++;
 
   @override
   void onInit() {

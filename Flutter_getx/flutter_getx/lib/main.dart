@@ -10,12 +10,13 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     // TODO: implement build
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
+      debugShowCheckedModeBanner: false, // 清楚debug标识
+      initialRoute: AppPages.INITIAL, // 初始化路由
+      getPages: AppPages.routes, // 路由列表
+      unknownRoute: AppPages.unknownRoute, // 路由没有找到提示页
     );
   }
 }

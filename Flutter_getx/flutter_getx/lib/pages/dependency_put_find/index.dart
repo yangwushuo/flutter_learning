@@ -6,6 +6,7 @@ import 'next_page.dart';
 class StateDependencyPutFindView extends StatelessWidget {
   StateDependencyPutFindView({Key? key}) : super(key: key);
 
+  // put全局注入一个依赖 类型CountController
   final controller = Get.put<CountController>(CountController());
 
   @override

@@ -59,6 +59,7 @@ class StateGetBuilderView extends StatelessWidget {
               }),
           Divider(),
           GetBuilder<CountController>(
+              id: "id2",
               init: controller,
               initState: (_) {},
               builder: (_) {

@@ -5,6 +5,7 @@ import 'controller.dart';
 class NextPageView extends StatelessWidget {
   NextPageView({Key? key}) : super(key: key);
 
+  // find 从全局获取一个依赖 CountController类型
   final controller = Get.find<CountController>();
 
   @override
