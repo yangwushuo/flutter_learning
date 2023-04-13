@@ -10,3 +10,4 @@ class DependencyLazyPutBinding implements Bindings {
     Get.lazyPut<CountController>(() => CountController());
   }
 }
+  
