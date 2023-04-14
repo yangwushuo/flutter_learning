@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_woo_commerce_getx_learn/common/routers/pages.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+
+import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // 路由
-      initialRoute: "/",
+      initialRoute: RouteNames.systemSplash,
       getPages: RoutePages.list,
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -45,7 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), 
+      ),
     );
   }
 }
