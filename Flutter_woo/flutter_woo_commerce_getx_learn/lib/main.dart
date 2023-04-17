@@ -3,7 +3,11 @@ import 'package:get/get_navigation/get_navigation.dart';
 
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
-void main() {
+import 'global.dart';
+
+Future<void> main() async {
+  // 初始化全局
+  await Global.init();
   runApp(const MyApp());
 }
 
@@ -15,13 +19,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      // 主题
+      theme: ConfigService.to.isDarkModel ? AppTheme.dark : AppTheme.light,
+      debugShowCheckedModeBanner: false,
       // 路由
-      initialRoute: RouteNames.systemSplash,
+      initialRoute: RouteNames.stylesStylesIndex, // 初始路由
       getPages: RoutePages.list,
+      // 多语言
+      translations: Translation(), // 词典
+      localizationsDelegates: Translation.localizationsDelegates, // 代理
+      supportedLocales: Translation.supportedLocales, // 支持的语言种类
+      locale: ConfigService.to.locale, // 当前语言种类
+      fallbackLocale: Translation.fallbackLocale, // 默认语言种类
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
