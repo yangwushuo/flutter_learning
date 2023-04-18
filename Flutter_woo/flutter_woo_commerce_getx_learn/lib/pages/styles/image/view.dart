@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'index.dart';
 
 class ImagePage extends GetView<ImageController> {
@@ -8,8 +9,18 @@ class ImagePage extends GetView<ImageController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("ImagePage"),
+    return ListView(
+      children: [
+        const ListTile(
+          leading: ImageWidget.url(
+              "https://ducafecat.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2022/02/90bb74497f090c48e1df1ec1ca31fb11-450x450.jpg"),
+          title: TextWidget.body1("ImageWidget.url"),
+        ),
+        const ListTile(
+          leading: ImageWidget.asset(AssetsImages.pPaypalPng),
+          title: TextWidget.body1("ImageWidget.asset"),
+        ),
+      ],
     );
   }
 
