@@ -1,16 +1,40 @@
 # flutter_woo_commerce_getx_learn
 
-A new Flutter project.
+1. 确保系统环境
 
-## Getting Started
+    ```bash
+    sdk: ">=2.19.0 <3.0.0"
+    flutter: ">=3.7.0"
+    ```
 
-This project is a starting point for a Flutter application.
+2. 安装相关依赖 
 
-A few resources to get you started if this is your first Flutter project:
+    ```bash
+    flutter pub get
+    ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+3. 生成文档
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+   执行命令，安装 `dartdoc`
+
+   ```bash
+   dart pub global activate dartdoc
+   ```
+
+   执行命令，生成文档到 `doc/api` 目录
+
+   ```bash
+   dart pub global run dartdoc
+   ```
+
+    执行命令，安装 `dhttpd`
+
+    ```bash
+    dart pub global activate dhttpd
+    ```
+
+    执行命令，运行 `dhttpd`
+
+    ```bash
+    dhttpd --path doc/api
+    ```

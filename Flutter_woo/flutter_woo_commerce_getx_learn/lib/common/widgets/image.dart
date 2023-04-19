@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
 enum ImageWidgetType { asset, network, file }
@@ -146,11 +147,11 @@ class ImageWidget extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       width: width,
       height: height,
-      child: image ?? _placeholder,
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: borderRadius,
       ),
+      child: image ?? _placeholder,
     );
   }
 

@@ -19,7 +19,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0-313.0.dev <4.0.0'
+  sdk: ">=2.19.0 <3.0.0"
+  flutter: ">=3.7.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -44,7 +45,9 @@ dependencies:
   dio: ^5.1.1
   flutter_svg: ^2.0.5
   badges: ^3.1.1
-  extended_image: 6.1.0
+  extended_image: ^7.0.2
+  flutter_screenutil: ^5.7.0
+  flutter_native_splash: ^2.2.19
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +83,9 @@ flutter_icons:
     generate: true
     image_path_ios: "assets/icons/launcher.png"
 
+flutter_native_splash:
+  color: "#ffffff"
+  image: "assets/icons/launcher_android.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
