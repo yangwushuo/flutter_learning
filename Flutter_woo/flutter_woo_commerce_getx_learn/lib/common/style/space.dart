@@ -27,6 +27,8 @@ class AppSpace {
   /// 页面内 - 16 左右
   static double get page => 16;
 
+  static double get zero => 0;
+
   /// 段落 - 24
   static double get paragraph => 24;
 

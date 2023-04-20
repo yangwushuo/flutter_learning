@@ -1,3 +1,4 @@
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
 
@@ -36,6 +37,7 @@ class StylesIndexController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    FlutterNativeSplash.remove();
     _initData();
   }
 

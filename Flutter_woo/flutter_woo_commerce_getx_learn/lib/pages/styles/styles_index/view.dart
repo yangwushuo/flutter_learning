@@ -20,7 +20,7 @@ class StylesIndexPage extends GetView<StylesIndexController> {
         // 主题切换
         ListTile(
           onTap: controller.onThemeSelected,
-          title: Text("主题切换"),
+          title: const Text("主题切换"),
         ),
         // 文本
         ListTile(
@@ -45,6 +45,11 @@ class StylesIndexPage extends GetView<StylesIndexController> {
           onTap: () => Get.toNamed(RouteNames.stylesInputs),
           title: const TextWidget.body1("Input 输入框"),
         ),
+        // form 表单
+        ListTile(
+          onTap: () => Get.toNamed(RouteNames.stylesTextForm),
+          title: const TextWidget.body1("form 表单"),
+        ),
       ],
     );
   }
@@ -56,7 +61,7 @@ class StylesIndexPage extends GetView<StylesIndexController> {
       id: "styles_index",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: Text("style_index")),
+          appBar: AppBar(title: const Text("style_index")),
           body: SafeArea(
             child: _buildView(),
           ),

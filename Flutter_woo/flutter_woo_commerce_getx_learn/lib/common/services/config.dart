@@ -20,6 +20,9 @@ class ConfigService extends GetxService {
   final RxBool _isDarkModel = Get.isDarkMode.obs;
   bool get isDarkModel => _isDarkModel.value;
 
+  // 是否首次打开
+  bool get isAlreadyOpen => Storage().getBool(Constants.storageAlreadyOpen);
+
   // 初始化
   Future<ConfigService> init() async {
     await getPlatform();
@@ -72,5 +75,10 @@ class ConfigService extends GetxService {
     Get.updateLocale(value);
     // 本地缓存语言
     Storage().setString(Constants.storageLanguageCode, value.languageCode);
+  }
+
+  // 标记已打开app
+  void setAlreadyOpen() {
+    Storage().setBool(Constants.storageAlreadyOpen, true);
   }
 }

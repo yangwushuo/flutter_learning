@@ -38,3 +38,13 @@
     ```bash
     dhttpd --path doc/api
     ```
+
+4. 创建图标/启动图
+
+   ```bash
+   flutter pub run flutter_native_splash:create
+   flutter pub run flutter_launcher_icons -f pubspec.yaml
+   ```
+
+   
+
