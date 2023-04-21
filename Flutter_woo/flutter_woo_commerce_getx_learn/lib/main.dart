@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
 
           // 路由
-          initialRoute: RouteNames.stylesStylesIndex, // 初始路由
+          initialRoute: RouteNames.systemSplash, // 初始路由
           getPages: RoutePages.list,
           navigatorObservers: [RoutePages.observer], // 导航监听
 
