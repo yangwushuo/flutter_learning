@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
+
 class RegisterController extends GetxController {
   RegisterController();
 
@@ -36,7 +38,20 @@ class RegisterController extends GetxController {
   // 注册
   void onSignUp() {
     if ((formKey.currentState as FormState).validate()) {
+      // aes 加密密码
+      // var password = EncryptUtil().aseEncode(passwordController.text);
+      var password = passwordController.text;
       // 验证通过提交数据
+      Get.offNamed(
+        RouteNames.systemRegisterPin,
+        arguments: UserRegisterReq(
+          username: userNameController.text,
+          email: emailController.text,
+          firstName: firstNameController.text,
+          lastName: lastNameController.text,
+          password: password,
+        ),
+      );
     }
   }
 

@@ -9,11 +9,14 @@ class Global {
     // flutter原生端接口进行初始化
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+    // 工具类
+    Loading();
+    Storage().init();
+
     // 装载
     await Future.wait(
       [
-        // 工具类
-        Storage().init(),
         Get.putAsync<ConfigService>(() async => await ConfigService().init()),
       ],
     ).whenComplete(() {

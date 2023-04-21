@@ -1,5 +1,4 @@
 class RouteNames {
-  
   static const main = '/';
 
   static const cartApplyPromoCode = '/cart_apply_promo_code';
