@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 
 import 'common/index.dart';
 
@@ -21,6 +22,8 @@ class Global {
       ],
     ).whenComplete(() {
       Get.put<WPHttpService>(WPHttpService());
+      Get.put<UserService>(UserService());
+      Get.put<Logger>(Logger());
     });
   }
 }

@@ -39,8 +39,7 @@ class RegisterController extends GetxController {
   void onSignUp() {
     if ((formKey.currentState as FormState).validate()) {
       // aes 加密密码
-      // var password = EncryptUtil().aseEncode(passwordController.text);
-      var password = passwordController.text;
+      var password = EncryptUtil().aesEncode(passwordController.text);
       // 验证通过提交数据
       Get.offNamed(
         RouteNames.systemRegisterPin,
@@ -56,7 +55,9 @@ class RegisterController extends GetxController {
   }
 
   // 登录
-  void onSignIn() {}
+  void onSignIn() {
+    Get.offNamed(RouteNames.systemLogin);
+  }
 
   // @override
   // void onInit() {

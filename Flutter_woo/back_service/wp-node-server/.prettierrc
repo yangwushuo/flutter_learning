@@ -1,0 +1,14 @@
+{
+	"printWidth": 200,
+	"spaceBeforeFunctionParen": true,
+	"tabWidth": 2,
+	"useTabs": true,
+	"trailingComma": "none",
+	"tslintIntegration": false,
+	"eslintIntegration": true,
+	"singleQuote": true,
+	"semi": false,
+	"bracketSpacing": true,
+	"jsxBracketSameLine": false,
+	"arrowParens": "avoid"
+}

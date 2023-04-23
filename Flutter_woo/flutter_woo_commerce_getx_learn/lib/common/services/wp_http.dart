@@ -106,9 +106,11 @@ class RequestInterceptors extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // super.onRequest(options, handler);
-    // if (UserService.to.hasToken) {
-    //   options.headers['Authorization'] = 'Bearer ${UserService.to.token}';
-    // }
+
+    // http header 头加入 Authorization
+    if (UserService.to.hasToken) {
+      options.headers['Authorization'] = 'Bearer ${UserService.to.token}';
+    }
     return handler.next(options);
     // 如果你想完成请求并返回一些自定义数据，你可以resolve一个Response对象 `handler.resolve(response)`。
     // 这样请求将会被终止，上层then会被调用，then中返回的数据将是你的自定义response.
@@ -120,6 +122,7 @@ class RequestInterceptors extends Interceptor {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     // 200 请求成功, 201 添加成功
+    MyLog.to.d("请求状态:${response.statusCode}");
     if (response.statusCode != 200 && response.statusCode != 201) {
       handler.reject(
         DioError(
@@ -135,14 +138,15 @@ class RequestInterceptors extends Interceptor {
   }
 
   /// 退出并重新登录
-  // Future<void> _errorNoAuthLogout() async {
-  //   await UserService.to.logout();
-  //   Get.toNamed(RouteNames.systemLogin);
-  // }
+  Future<void> _errorNoAuthLogout() async {
+    await UserService.to.logout();
+    Get.toNamed(RouteNames.systemLogin);
+  }
 
   @override
   Future<void> onError(DioError err, ErrorInterceptorHandler handler) async {
     final exception = HttpException(err.message ?? 'error message');
+    MyLog.to.e(err);
     switch (err.type) {
       case DioErrorType.badResponse: // 服务端自定义错误体处理
         {
