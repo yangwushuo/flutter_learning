@@ -9,7 +9,7 @@ import 'index.dart';
 class RegisterPinPage extends GetView<RegisterPinController> {
   const RegisterPinPage({Key? key}) : super(key: key);
 
-  // 表单页
+  // 表单页面
   Widget _buildForm() {
     return Form(
       key: controller.formKey, // 设置globalKey, 用于后面获取FormState
